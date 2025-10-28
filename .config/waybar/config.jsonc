@@ -1,0 +1,156 @@
+{
+  "layer": "top",
+  "reload_style_on_change": true,
+  "margin": "10",
+  "spacing": 5,
+  // modules start
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["clock", "mpris"],
+  "modules-right": ["network", "tray", "group/system"],
+  // modules end
+  "hyprland/workspaces": {
+    "format": "{icon}{windows}",
+    "format-window-separator": "",
+    "window-rewrite-default": "  ",
+    "window-rewrite": {
+      "class<org.qutebrowser.qutebrowser>": " 󰰜 ",
+      "class<alacritty|kitty>": "  ",
+      "class<discord>": " 󰙯 ",
+      ".*(minecraft|Minecraft).*": " 󰍳 ",
+      "title<ncspot>|class<Spotify>": "  ",
+      "title<btop>": " 󰝪 ",
+      "class<godot>": "  ",
+      "class<firefox>": "  ",
+      "title<pulsemixer>": "  ",
+      "title<(nv|nvim|c |conf |notes).*>": "  ",
+      "title<ranger>": " 󱧶 ",
+      "title<bluet.*>": " 󰂯 ",
+      "title<neomutt.*>": " 󰇮 ",
+      "title<calcur.*>": "  ",
+      "title<steam>": " 󰓓 ",
+      "class<.*qpwgraph>": " 󰘮 ",
+      "class<mpv>": "  "
+    },
+    "active-only": false,
+    "all-outputs": false,
+    "persistent-workspaces": {
+      "*": 10
+    },
+    "show-special": true,
+    "workspace-taskbar": {
+      "enable": false,
+      "format": "{icon}"
+    }
+  },
+
+  "hyprland/window": {
+    "max-length": 40,
+    "format": " {title}",
+    "icon": true,
+    "rewrite": {
+      " ": "🖥️     Desktop"
+    }
+  },
+  "battery": {
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "format": "{capacity}% {icon}",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "clock": {
+    "interval": 1,
+    "format": "{:%a. %d/%m/%y 󰥔 %H:%M}",
+    "format-alt": "{:%A %d %B %Y 󰥔 %H:%M:%S}",
+    "tooltip-format": "{}"
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 1
+  },
+  "cpu": {
+    "interval": 5,
+    "format": "{usage}% ",
+    "max-length": 10
+  },
+  "memory": {
+    "interval": 5,
+    "format": "{percentage}% ",
+    "max-length": 10
+  },
+  "disk": {
+    "interval": 30,
+    "format": "{free} 󱛟",
+    "unit": "GB"
+  },
+  "temperature": {
+    "format": "{temperatureC}°C {icon}",
+    "format-icons": ["󱃃"]
+  },
+  "custom/separator": {
+    "format": ""
+  },
+  "group/hardware": {
+    "modules": ["disk", "cpu", "memory", "temperature"],
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 400,
+      "children-class": "not-power",
+      "transition-left-to-right": false
+    }
+  },
+  "mpris": {
+    "format": "{status_icon} {artist} - {title}",
+    "title-len": 20,
+    "artist-len": 10,
+    "player-icons": {
+      "default": "⏸",
+      "ncspot": ""
+    },
+    "status-icons": {
+      "paused": "▶",
+      "playing": "⏸"
+    },
+    "ignored-players": ["firefox", "chromium"]
+  },
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "{essid} ({signalStrength}%) {icon}",
+    "format-ethernet": "Ethernet 󰈀",
+    "format-disconnected": "󰤭",
+    "tooltip-format-wifi": "{frequency}Ghz",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50,
+    "format-icons": { "wifi": ["󰤟", "󰤢", "󰤥", "󰤨"] },
+    "on-click": "iwgtk"
+  },
+  "group/system": {
+    "modules": [
+      "group/hardware",
+      "battery",
+      "custom/separator",
+      "power-profiles-daemon"
+    ],
+    "orientation": "horizontal"
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-muted": "󰸈",
+    "format-icons": ["󰕿", "󰖀", "󰕾"]
+  },
+  "backlight": {
+    "format": "{percent}% {icon}",
+    "format-icons": ["", "󱎖", ""]
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  }
+}
