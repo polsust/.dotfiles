@@ -1,0 +1,14 @@
+#!/bin/bash
+
+DIR="$HOME/.local/share/tts"
+INPUT="$DIR/input.txt"
+OUTPUT="$DIR/output.wav"
+
+mkdir -p "$HOME/.local/share/tts"
+
+rm "$OUTPUT"
+
+echo "$QUTE_SELECTED_TEXT" >"$INPUT" |
+	docker run --rm -v "$DIR:/tts" tts /tts/input.txt /tts/tts.wav --voice "af_bella" &&
+	ffmpeg -i "$DIR"/tts.wav -af "acompressor=threshold=-20dB:ratio=10:makeup=12dB:attack=2:release=50" "$DIR"/output.wav &&
+	mpv --force-window --keep-open "$OUTPUT"

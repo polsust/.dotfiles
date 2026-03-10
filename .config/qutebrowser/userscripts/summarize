@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "open -t https://chat.openai.com/?q=\
+  summarize+this+page+for+me+make+the+summary+as+short+as+possible\
+  +without+ommiting+important+content+make+a+bulleted+list+of+key+takeaways+at+the+end:$QUTE_URL" >>"$QUTE_FIFO"
