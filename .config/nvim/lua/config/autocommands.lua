@@ -133,9 +133,10 @@ local patterns = {
 local function get_comment_lines(buf)
   local lang = vim.bo[buf].filetype
   local ok, parser = pcall(vim.treesitter.get_parser, buf, lang)
-  if not ok then
+  if not ok or not parser then
     return {}
   end
+
   local tree = parser:parse()[1]
   local root = tree:root()
 
