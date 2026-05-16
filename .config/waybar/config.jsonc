@@ -4,9 +4,16 @@
   "margin": "10",
   "spacing": 5,
   // modules start
-  "modules-left": ["hyprland/workspaces", "hyprland/window"],
-  "modules-center": ["clock", "mpris"],
-  "modules-right": ["network", "tray", "group/system"],
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/separator",
+    "hyprland/window",
+    "custom/separator",
+    // "image#album-cover",
+    "mpris"
+  ],
+  "modules-center": ["clock"],
+  "modules-right": ["custom/weather", "network", "tray", "group/system"],
   // modules end
   "hyprland/workspaces": {
     "format": "{icon}{windows}",

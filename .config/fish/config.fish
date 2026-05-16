@@ -1,6 +1,6 @@
 if status is-interactive
     fish_vi_key_bindings
-    fish_vi_cursor 
+    fish_vi_cursor
 
     bind yy fish_clipboard_copy
     bind Y fish_clipboard_copy
@@ -8,7 +8,8 @@ if status is-interactive
     bind p fish_clipboard_paste
     bind P fish_clipboard_paste
 
-    function fish_mode_prompt; end # remove vi indicator
+    function fish_mode_prompt
+    end # remove vi indicator
     bind -M insert \cf accept-autosuggestion
 
     ### ALIASES ####
@@ -26,7 +27,7 @@ if status is-interactive
     alias restart-qtile "qtile cmd-obj -o cmd -f restart"
     alias hfzf "history -n 1000 | fzf | xargs -I {} fish -ic "{}""
     alias rgf "rg --files | rg"
-    alias cdwindows "cd /mnt/c/Users/psust/"
+    alias cdwindows "cd /mnt/windows/Users/polsu/"
 
     # paru 
     alias I "paru -S"
@@ -61,3 +62,10 @@ if status is-interactive
 end
 
 zoxide init --cmd cd fish | source
+
+# pnpm
+set -gx PNPM_HOME "/home/$USER/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
