@@ -33,7 +33,7 @@ return {
     keymap = {
       preset = "none",
       ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
-      ["<C-e>"] = { "hide", "fallback" },
+      ["<C-e>"] = { "cancel", "fallback" },
       ["<C-o>"] = { "show_and_insert", "select_and_accept", "fallback" },
 
       ["<C-k>"] = { "select_prev", "fallback_to_mappings" },
