@@ -39,7 +39,8 @@ window {
 }
 
 #tray menu * {
-  padding: 5px;
+  padding: 2px 0px;
+  margin: 0;
 }
 
 .modules-left,
