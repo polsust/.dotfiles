@@ -113,7 +113,11 @@ return {
 
                 -- print(vim.inspect(ctx))
                 -- .. string.format("[%s]", ctx.source_name)
-                return icon .. ctx.icon_gap
+                if icon then
+                  return icon .. ctx.icon_gap
+                end
+
+                return ""
               end,
 
               highlight = function(ctx)
