@@ -6,7 +6,7 @@
 local opt = require 'mp.options'
 local utils = require 'mp.utils'
 
-local ON = false
+local ON = true
 local ranges = nil
 
 local category_names = {
