@@ -13,3 +13,9 @@ nnoremap "x" ":ccopy<cr>x"
 
 
 vnoremap "x" ":ccopy<cr>x"
+
+
+
+
+vnoremap "<c-d>" ":set half_page_scroll=1<cr>x"
+vnoremap "<c-u>" ":set half_page_scroll=0<cr>x"
