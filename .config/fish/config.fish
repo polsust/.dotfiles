@@ -12,9 +12,13 @@ if status is-interactive
     end # remove vi indicator
     bind -M insert \cf accept-autosuggestion
 
+    bind -M insert \ce "$EDITOR ."
+    bind -M insert \cr "ranger ."
+
     ### ALIASES ####
     alias n notes
     alias c conf
+    alias p projects
     alias .2 "cd ../.."
     alias ll "ls -lt"
     function ls
@@ -58,6 +62,7 @@ if status is-interactive
     alias I "paru -S"
     alias R "paru -R"
     alias U "paru -Syu"
+    alias S "paru -Slq | fzf  --preview 'paru -Si {}' | paru -S -"
 
     # dnf
     alias dnfi "sudo dnf install"
@@ -107,3 +112,6 @@ if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+
+# Added by Antigravity CLI installer
+set -gx PATH "/home/polsust/.local/bin" $PATH
