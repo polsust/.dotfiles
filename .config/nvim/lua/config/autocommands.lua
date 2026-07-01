@@ -160,6 +160,11 @@ end
 vim.api.nvim_create_autocmd({ "BufEnter", "TextChanged", "TextChangedI", "BufWritePost" }, {
   callback = function(args)
     local buf = args.buf
+
+    if not vim.api.nvim_get_option_value("modifiable", { buf = buf }) then
+      return
+    end
+
     vim.fn.sign_unplace("printgroup", { buffer = buf })
     local comments = get_comment_lines(buf)
 
