@@ -4,7 +4,7 @@ Bind("SUPER + x", "rofi -show ssh")
 Bind("SUPER + period", "rofimoji --action copy --selector-args='-theme grid-picker.rasi'")
 Bind("SUPER + comma", "~/.scripts/rofiGlyphs")
 Bind("SUPER + c", "rofi -show calc")
-Bind("SUPER + v", "clipmenu")
+Bind("SUPER + v", "cliphist list | rofi -dmenu | cliphist decode | wl-copy")
 
 Bind("SUPER + t", TERMINAL)
 Bind("SUPER + w", WEB_BROWSER)

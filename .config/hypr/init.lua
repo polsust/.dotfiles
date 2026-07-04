@@ -17,4 +17,5 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("discover-overlay")
 	hl.exec_cmd("darkman run")
 	hl.exec_cmd("udiskie")
+	hl.exec_cmd("wl-paste --watch cliphist store") -- cliphist listener
 end)
