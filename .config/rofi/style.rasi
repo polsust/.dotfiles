@@ -8,6 +8,10 @@
 
 /* Comment */
 
+* {
+    font: "mononoki Nerd Font 14";
+}
+
 window {
     location: center;
     height: 420;
