@@ -68,10 +68,11 @@ hl.window_rule({
 
 local float_classes = {
 	"org.prismlauncher.PrismLauncher",
-	"nz.co.mega.megasync",
-	"scrcpy",
+  "nz.co.mega.megasync",
+  "scrcpy",
 	"org.twosheds.iwgtk",
 	"blueman-manager",
+  ".*iwgtk"
 }
 local float_titles = {
 	"^(Library)(.*)$",

@@ -1,6 +1,6 @@
 hl.window_rule({
 	match = {
-		class = "^(?i).*(minecraft|steam|godot|artofrally.x64|org.prismlauncher.PrismLauncher).*$",
+		class = "^(?i).*(minecraft|steam|godot|artofrally.x64|org.prismlauncher.PrismLauncher|fifa).*$",
 	},
 	workspace = "4 silent",
 })

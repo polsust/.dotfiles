@@ -37,6 +37,8 @@ hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
 hl.bind("SUPER + mouse:272", hl.dsp.window.float({ action = "enable" }), { mouse = true })
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
 
+hl.bind("SUPER + Space", hl.dsp.window.center())
+
 hl.bind("SUPER + SHIFT + Return", hl.dsp.group.toggle())
 hl.bind("SUPER + m", hl.dsp.window.fullscreen({ mode = "maximized" }))
 
