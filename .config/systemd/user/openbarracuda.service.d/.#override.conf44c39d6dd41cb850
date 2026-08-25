@@ -1,0 +1,25 @@
+### Editing /home/polsust/.config/systemd/user/openbarracuda.service.d/override.conf
+### Anything between here and the comment below will become the contents of the drop-in file
+
+
+
+### Edits below this comment will be discarded
+
+
+### /usr/lib/systemd/user/openbarracuda.service
+# # openbarracuda headset daemon
+# # Install to: ~/.config/systemd/user/openbarracuda.service
+# # Enable with: systemctl --user enable --now openbarracuda.service
+# 
+# [Unit]
+# Description=OpenBarracuda Razer Headset Daemon
+# After=dbus.service pipewire-pulse.socket pulseaudio.socket
+# 
+# [Service]
+# Type=simple
+# ExecStart=openbarracuda daemon
+# Restart=on-failure
+# RestartSec=5
+# 
+# [Install]
+# WantedBy=default.target
