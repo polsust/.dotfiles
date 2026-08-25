@@ -27,10 +27,11 @@
 
 * {
   font-family: "Mononoki nerd font";
+  font-size: 14px;
 }
 
 window {
-  all: unset;
+  /* all: unset; */
   color: @text;
 }
 
@@ -47,7 +48,6 @@ window {
 .modules-center,
 .modules-right * {
   background-color: @base;
-  border-radius: 50px;
 }
 
 .modules-left {
@@ -61,19 +61,70 @@ window {
 
 #workspaces button {
   padding: 3px 7px;
-  border-radius: 50px;
 }
-
 #workspaces button.active {
   background: @crust;
+  color: @lavender;
 }
-
 #workspaces button.special {
   background: @yellow;
   color: @base;
+}
+#workspaces button.urgent {
+  background: @red;
+  color: @base;
+}
+#workspaces button.empty:not(.special) {
+  opacity: 0.5;
+  padding: 0 2px;
+}
+
+window#waybar.fullscreen #window {
+  color: @maroon;
 }
 
 #custom-separator {
   padding: 0;
   padding-left: 5px;
+}
+
+#battery {
+  color: @green;
+}
+#battery.warning {
+  color: @peach;
+}
+#battery.critical {
+  color: @red;
+}
+
+#backlight {
+  color: @yellow;
+}
+
+#power-profiles-daemon.performance {
+  color: @yellow;
+}
+#power-profiles-daemon.power-saver {
+  color: @green;
+}
+
+#temperature {
+  color: @peach;
+}
+#temperature.critical {
+  color: @red;
+}
+#memory {
+  color: @mauve;
+}
+#cpu {
+  color: @rosewater;
+}
+/* #network { */
+/*   color: @mauve; */
+/* } */
+#pulseaudio,
+#custom-microphone {
+  color: @lavender;
 }
