@@ -16,7 +16,7 @@ import qualified XMonad.StackSet as W
 import XMonad.Actions.GroupNavigation
 import Graphics.X11.ExtraTypes.XF86
 
-myTerminal = "alacritty"
+myTerminal = "kitty"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -73,10 +73,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_period), spawn "rofimoji")
 
     -- launch pulsemixer
-    , ((modm .|. shiftMask, xK_p    ), spawn "alacritty --class 'pulsemixer,pulsemixer' -e pulsemixer")
+    , ((modm .|. shiftMask, xK_p    ), spawn "kitty --class 'pulsemixer,pulsemixer' -e pulsemixer")
 
     -- launch ranger
-    , ((modm .|. shiftMask, xK_r    ), spawn "alacritty --class 'ranger,ranger' -e ranger")
+    , ((modm .|. shiftMask, xK_r    ), spawn "kitty --class 'ranger,ranger' -e ranger")
 
     -- launch emacs
     , ((modm .|. shiftMask, xK_e    ), spawn "emacsclient -c -a 'emacs'")

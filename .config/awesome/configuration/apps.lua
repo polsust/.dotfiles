@@ -2,7 +2,7 @@ local filesystem = require("gears.filesystem")
 local config_dir = filesystem.get_configuration_dir()
 local utils_dir = config_dir .. "utilities/"
 
-local terminal = "alacritty"
+local terminal = "kitty"
 
 local function launch_on_terminal(app)
   return terminal .. " --class='" .. app .. "," .. app .. "' -e " .. app

@@ -1,4 +1,4 @@
-TERMINAL = "alacritty"
+TERMINAL = "kitty"
 LAUNCH_IN_TERM = TERMINAL .. " -e"
 GUI_FILE_MANAGER = "pcmanfm"
 WEB_BROWSER = "qutebrowser"

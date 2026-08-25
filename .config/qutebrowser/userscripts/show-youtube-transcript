@@ -13,4 +13,4 @@ msg() {
 
 msg info "Extracting transcript for $QUTE_URL"
 
-alacritty -e get-youtube-transcript "$QUTE_URL"
+kitty -e get-youtube-transcript "$QUTE_URL"

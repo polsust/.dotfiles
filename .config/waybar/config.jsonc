@@ -220,7 +220,7 @@
     "exec-if": "which paru",
     "exec": "echo \"$(paru -Qu --repo | grep -v '\\[ignored\\]' | wc -l) / $(paru -Qu --aur |grep -v '\\[ignored\\]' | wc -l)\"",
     "on-click-right": "",
-    "on-click": "alacritty -e paru -Syu",
+    "on-click": "kitty -e paru -Syu",
     "interval": "once"
   }
 }

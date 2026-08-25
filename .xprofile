@@ -2,7 +2,7 @@ export BROWSER=qutebrowser
 export VISUAL=nvim
 export EDITOR=nvim
 export SUDO_EDITOR=nvim
-export TERMINAL=alacritty
+export TERMINAL=kitty
 
 export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
 

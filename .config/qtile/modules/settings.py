@@ -6,7 +6,7 @@ alt = "mod1"
 home = os.environ["HOME"]
 
 apps = {
-    "terminal": "alacritty",
+    "terminal": "kitty",
     "gui_file_manager": "pcmanfm",
     "tui_file_manager": "ranger",
     "web_browser": "firefox",

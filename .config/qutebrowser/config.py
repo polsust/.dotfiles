@@ -97,7 +97,7 @@ config.bind("sd", "spawn --userscript open_download")
 
 config.bind("ge", "edit-url")
 c.editor.command = [
-    "alacritty",
+    "kitty",
     "-T",
     "float",
     "-e",
@@ -173,7 +173,7 @@ c.content.user_stylesheets = [
 ]
 
 c.fileselect.folder.command = [
-    "alacritty",
+    "kitty",
     "-t",
     "float",
     "-e",
