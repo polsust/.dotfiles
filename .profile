@@ -42,3 +42,5 @@ export PATH="$PATH:$HOME/.local/share/nvim/mason/bin/"
 
 export MOZ_ENABLE_WAYLAND=1
 export MOZ_GDK_SCALE=1
+
+source "$HOME/.env"
