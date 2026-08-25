@@ -13,7 +13,7 @@ if status is-interactive
     bind -M insert \cf accept-autosuggestion
 
     bind -M insert \ce "$EDITOR ."
-    bind -M insert \cr "ranger ."
+    bind -M insert \cr "elio ."
 
     ### ALIASES ####
     alias n notes
@@ -89,7 +89,7 @@ if status is-interactive
             command rmdir $argv
         end
     end
-    alias r ranger
+    alias r elio
     alias z zathura
     alias lg lazygit
     alias nv nvim
