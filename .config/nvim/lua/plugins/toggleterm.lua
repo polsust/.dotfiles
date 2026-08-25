@@ -2,9 +2,9 @@ return {
   enabled = true,
   "akinsho/toggleterm.nvim",
   keys = {
-    { [[<C-\>]] },
+    { [[<M-\>]] },
     { "<C-g>", function() _LAZYGIT_TOGGLE() end, mode = { "n", "t" } },
-    { [[<M-\>]], function() _ALT_TOGGLE() end, mode = { "n", "t" } },
+    { [[<C-\>]], function() _ALT_TOGGLE() end, mode = { "n", "t" } },
   },
   version = "*",
   opts = function()
@@ -35,7 +35,7 @@ return {
 
     return {
       size = 20,
-      open_mapping = [[<c-\>]],
+      open_mapping = [[<m-\>]],
       hide_numbers = true,
       shade_terminals = true,
       shading_factor = 2,

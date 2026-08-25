@@ -7,7 +7,7 @@ return {
   ---@module 'oil'
   ---@type oil.SetupOpts
   keys = {
-    { "-", "<CMD>Oil<CR>" },
+    { "<m-e>", "<CMD>Oil<CR>" },
   },
   opts = {
     default_file_explorer = true,
@@ -61,7 +61,7 @@ return {
     keymaps = {
       ["g?"] = { "actions.show_help", mode = "n" },
       ["<CR>"] = "actions.select",
-      -- ["<C-p>"] = "actions.preview",
+      ["<C-P>"] = "actions.preview",
       ["<C-q>"] = { "actions.close", mode = "n" },
       ["<C-r>"] = "actions.refresh",
       -- ["-"] = { "actions.parent", mode = "n" },

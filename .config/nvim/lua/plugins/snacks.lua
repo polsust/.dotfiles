@@ -40,7 +40,16 @@ return {
     -- find
     { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
     { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
-    { "<c-p>", function() Snacks.picker.files({ exclude = { "*.mp3" }, hidden = true }) end, desc = "Find Files" },
+    {
+      "<c-p>",
+      function()
+        Snacks.picker.files({
+          exclude = { "*.mp3", "*.gd.uid" },
+          hidden = true,
+        })
+      end,
+      desc = "Find Files",
+    },
     { "<leader>fg", function() Snacks.picker.git_status() end, desc = "Git Status" },
     { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
     { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
@@ -56,7 +65,12 @@ return {
     { "<leader>gf", function() Snacks.picker.git_log_file() end, desc = "Git Log File" },
     -- Grep
     { "<leader>fw", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
-    { "<leader>fw", function() Snacks.picker.grep_word() end, desc = "Visual selection", mode = { "v", "x" } },
+    {
+      "<leader>fw",
+      function() Snacks.picker.grep_word() end,
+      desc = "Visual selection",
+      mode = { "v", "x" },
+    },
     { "<leader>fW", function() Snacks.picker.grep() end, desc = "Grep" },
     -- search
     { '<leader>s"', function() Snacks.picker.registers() end, desc = "Registers" },
@@ -81,7 +95,12 @@ return {
     -- LSP
     { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
     { "gD", function() Snacks.picker.lsp_declarations() end, desc = "Goto Declaration" },
-    { "gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
+    {
+      "gr",
+      function() Snacks.picker.lsp_references() end,
+      nowait = true,
+      desc = "References",
+    },
     { "gi", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
     { "gt", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
     { "gls", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
@@ -91,8 +110,14 @@ return {
     { "<leader>.", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
     { "<leader>S", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
     { "<leader>c", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
+    { "<m-c>", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
     { "<leader>C", function() Snacks.bufdelete.all() end, desc = "Delete Buffer" },
-    { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse", mode = { "n", "v" } },
+    {
+      "<leader>gB",
+      function() Snacks.gitbrowse() end,
+      desc = "Git Browse",
+      mode = { "n", "v" },
+    },
   },
   ---@type snacks.Config
   opts = {

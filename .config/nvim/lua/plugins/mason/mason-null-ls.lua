@@ -39,6 +39,23 @@ return {
         require("null-ls").register(require("null-ls").builtins.diagnostics.gdlint)
         require("null-ls").register(require("null-ls").builtins.formatting.gdformat)
       end,
+
+      -- NOTE: Sources that are not declared by none-ls
+      kulala_fmt = function()
+        local null_ls = require("null-ls")
+        local helpers = require("null-ls.helpers")
+
+        require("null-ls").register({
+          name = "kulala_fmt",
+          method = null_ls.methods.FORMATTING,
+          filetypes = { "rest", "http" },
+          generator = helpers.formatter_factory({
+            command = "kulala-fmt",
+            args = { "format", "$FILENAME" },
+            to_temp_file = true,
+          }),
+        })
+      end,
     },
   },
 }

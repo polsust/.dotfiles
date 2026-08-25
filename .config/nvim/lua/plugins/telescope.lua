@@ -1,20 +1,20 @@
 return {
-  enabled = false,
+  enabled = true,
   "nvim-telescope/telescope.nvim",
   tag = "0.1.8",
   dependencies = { "nvim-lua/plenary.nvim" },
   cmd = "Telescope",
-  keys = {
-    -- { "<C-p>", "<cmd>Telescope find_files<CR>" },
-    { "<leader>fW", "<cmd>Telescope live_grep<CR>" },
-    { "<leader>fw", "<cmd>Telescope current_buffer_fuzzy_find<CR>" },
-    { "<leader>fb", "<cmd>Telescope buffers<CR>" },
-    { "<leader>fh", "<cmd>Telescope help_tags<CR>" },
-    { "<leader>fg", "<cmd>Telescope git_status<CR>" },
-    { "<leader>fd", "<cmd>Telescope diagnostics<CR>" },
-    { "<leader>gb", "<cmd>Telescope git_branches<CR>" },
-    { "<leader>gc", "<cmd>Telescope git_bcommits<CR>" },
-  },
+  -- keys = {
+  --   -- { "<C-p>", "<cmd>Telescope find_files<CR>" },
+  --   { "<leader>fW", "<cmd>Telescope live_grep<CR>" },
+  --   { "<leader>fw", "<cmd>Telescope current_buffer_fuzzy_find<CR>" },
+  --   { "<leader>fb", "<cmd>Telescope buffers<CR>" },
+  --   { "<leader>fh", "<cmd>Telescope help_tags<CR>" },
+  --   { "<leader>fg", "<cmd>Telescope git_status<CR>" },
+  --   { "<leader>fd", "<cmd>Telescope diagnostics<CR>" },
+  --   { "<leader>gb", "<cmd>Telescope git_branches<CR>" },
+  --   { "<leader>gc", "<cmd>Telescope git_bcommits<CR>" },
+  -- },
   opts = function()
     local exclude_patterns = {
       -- general

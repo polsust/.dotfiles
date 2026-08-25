@@ -7,5 +7,12 @@ return {
   lazy = true,
   config = function()
     require("luasnip.loaders.from_vscode").lazy_load() -- load friendly-snippets
+    require("luasnip.loaders.from_lua").lazy_load({
+      paths = "~/.config/nvim/lua/snippets",
+    })
+
+    local ls = require("luasnip")
+
+    ls.filetype_extend("typescript", { "javascript" })
   end,
 }

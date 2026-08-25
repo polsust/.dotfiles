@@ -1,7 +1,6 @@
 return {
   enabled = true,
   "nvim-treesitter/nvim-treesitter",
-  branch = "master",
   lazy = false,
   build = ":TSUpdate",
   main = "nvim-treesitter.configs",
@@ -37,7 +36,8 @@ return {
     },
 
     indent = {
-      enable = true,
+      enable = false,
+      disable = { "tsx", "jsx", "svelte" },
     },
   },
 }

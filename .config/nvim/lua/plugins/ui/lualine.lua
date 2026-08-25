@@ -43,6 +43,10 @@ return {
       end,
     }
 
+    local ssh = {
+      function() return vim.g.remote_neovim_host and ("$ %s"):format(vim.uv.os_gethostname()) or "" end,
+    }
+
     return {
       sections = {
         lualine_a = {
@@ -51,7 +55,7 @@ return {
         lualine_b = {
           macro,
           "branch",
-          "diff",
+          -- "diff",
           "diagnostics",
           "grapple",
         },
@@ -66,6 +70,7 @@ return {
           "filetype",
         },
         lualine_y = {
+          ssh,
           "progress",
         },
         lualine_z = {

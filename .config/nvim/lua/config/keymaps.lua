@@ -10,9 +10,9 @@ vim.g.mapleader = " "
 
 key({ "n", "i" }, "<D-`>", "`")
 
-key("n", "<m-a>", "ggVG<C-o>")
-key("n", "<m-d>", "ggVGd")
-key("n", "<m-c>", "ggVGy<C-o>")
+key("n", "<m-a>", "GVgg")
+key("n", "<m-d>", "<cmd>%d<cr>")
+key("n", "<m-y>", "<cmd>%y<cr>")
 key("n", "<m-r>", "<cmd>mksession! /tmp/Session.vim | restart source /tmp/Session.vim<cr>")
 
 key("n", "<m-CR>", "A;<esc>")

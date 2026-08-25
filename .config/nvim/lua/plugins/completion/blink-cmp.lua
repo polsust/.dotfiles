@@ -55,7 +55,7 @@ return {
 
     completion = {
       trigger = {
-        prefetch_on_insert = true,
+        prefetch_on_insert = false,
         show_in_snippet = true,
         show_on_trigger_character = true,
         show_on_insert_on_trigger_character = true,
@@ -65,7 +65,7 @@ return {
         enabled = false,
       },
       documentation = {
-        auto_show = true,
+        auto_show = false,
       },
       list = {
         selection = {

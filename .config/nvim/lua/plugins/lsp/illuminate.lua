@@ -5,8 +5,8 @@ return {
   config = function()
     require("illuminate").configure({
       providers = {
+        -- "treesitter",
         "lsp",
-        "treesitter",
         "regex",
       },
       delay = 0,
@@ -20,7 +20,7 @@ return {
           providers = {
             "regex",
             "lsp",
-            "treesitter",
+            -- "treesitter",
           },
         },
       },

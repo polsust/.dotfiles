@@ -2,6 +2,7 @@ return {
   -- don't lazy load
   enabled = true,
   "lewis6991/gitsigns.nvim",
+  lazy = false,
   keys = {
     { "<leader>gj", "<cmd>Gitsigns next_hunk<CR>" },
     { "<leader>gk", "<cmd>Gitsigns prev_hunk<CR>" },

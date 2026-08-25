@@ -1,7 +1,7 @@
 return {
   enabled = true,
+  lazy = false,
   "WhoIsSethDaniel/mason-tool-installer.nvim",
-  event = "VeryLazy",
   opts = {
     ensure_installed = {
       -- NOTE: LSP
@@ -17,12 +17,15 @@ return {
       "tailwindcss-language-server",
       "marksman",
       "html-lsp",
+      "svelte-language-server",
+      "dockerls",
+      "dockerfmt",
 
       -- NOTE: DAP
 
       -- NOTE: FORMATTER/LINTER
+      "shellcheck",
       "shellharden",
-      "shfmt",
       "eslint_d",
       "stylua",
       "prettierd",
@@ -31,8 +34,8 @@ return {
     },
     auto_update = true,
     run_on_start = true,
-    start_delay = 3000,
-    debounce_hours = 10,
+    start_delay = 0,
+    debounce_hours = 0,
     integrations = {
       ["mason-lspconfig"] = true,
       ["mason-null-ls"] = true,

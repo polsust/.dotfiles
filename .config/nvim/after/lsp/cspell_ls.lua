@@ -1,3 +1,3 @@
 return {
-  filetypes = { "markdown", "text", "gitcommit", "gitrebase", "" },
+  filetypes = { "markdown", "text", "gitcommit", "gitrebase", "mail", "" },
 }

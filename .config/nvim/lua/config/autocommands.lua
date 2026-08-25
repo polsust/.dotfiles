@@ -34,38 +34,38 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 -- })
 
 -- autosave
-vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave" }, {
-  callback = function(data)
-    if vim.g.autosave == false then
-      return
-    end
-
-    if string.find(data.file, "__harpoon") then
-      return
-    end
-
-    if string.find(data.file, "oil") then
-      return
-    end
-
-    if string.find(data.file, "minifiles") then
-      return
-    end
-
-    -- this will affect also any file which it's path contains spectre
-    if string.find(data.file, "spectre") or data.file == "" then
-      return
-    end
-
-    if string.find(data.file, "dap") or data.file == "" then
-      return
-    end
-
-    if vim.fn.getbufvar(data.buf, "&modifiable") == 1 then
-      vim.cmd([[ silent write ]])
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave" }, {
+--   callback = function(data)
+--     if vim.g.autosave == false then
+--       return
+--     end
+--
+--     if string.find(data.file, "__harpoon") then
+--       return
+--     end
+--
+--     if string.find(data.file, "oil") then
+--       return
+--     end
+--
+--     if string.find(data.file, "minifiles") then
+--       return
+--     end
+--
+--     -- this will affect also any file which it's path contains spectre
+--     if string.find(data.file, "spectre") or data.file == "" then
+--       return
+--     end
+--
+--     if string.find(data.file, "dap") or data.file == "" then
+--       return
+--     end
+--
+--     if vim.fn.getbufvar(data.buf, "&modifiable") == 1 then
+--       vim.cmd([[ silent write ]])
+--     end
+--   end,
+-- })
 
 vim.opt.autoread = true
 
@@ -121,7 +121,7 @@ end
 
 -- PRINT SIGNS --
 -- Define the sign once
-vim.fn.sign_define("PrintSign", { text = "", texthl = "WarningMsg" })
+vim.fn.sign_define("PrintSign", { text = "󰍩", texthl = "WarningMsg" })
 
 -- List of regex patterns (Lua patterns, not PCRE)
 local patterns = {
@@ -182,10 +182,10 @@ vim.api.nvim_create_autocmd({ "BufEnter", "TextChanged", "TextChangedI", "BufWri
   end,
 })
 
--- Format on save
-vim.api.nvim_create_autocmd("BufWritePre", {
-  callback = function() format_file(vim.api.nvim_get_current_buf()) end,
-})
+-- -- Format on save
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--   callback = function() format_file(vim.api.nvim_get_current_buf()) end,
+-- })
 
 -- From vim defaults.vim
 -- ---

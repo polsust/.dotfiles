@@ -6,4 +6,5 @@ return {
   { import = "plugins.ui" },
   { import = "plugins.mason" },
   { import = "plugins.markdown" },
+  { import = "plugins.ai" },
 }
