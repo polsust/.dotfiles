@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+# (() => {
+#   let playlistItems = document.querySelector(".playlist-items").childNodes;
+#   console.log(playlistItems);
+#
+#   playlistItems.forEach((video) => {
+#     console.log(video.querySelector("a").href);
+#   });
+# })();
+
+# echo "message-info $QUTE_HTML" >> "$QUTE_FIFO"
+
+# out=$(cat "$QUTE_HTML" | grep "playlist-items")
+
+queue_urls=$(cat "$QUTE_HTML" | grep -oP '/watch\?v=\K[^\\&"]+(?=[^"]*list=)' | awk '!seen[$0]++' | sed 's#^#https://www.youtube.com/watch?v=#')
+
+MPV_FLAGS=(
+	--force-window
+	--quiet
+	--keep-open=yes
+	--ytdl
+	--force-window=immediate
+	--ytdl-format="bestvideo[height<=720]+bestaudio/best[height<=720]"
+)
+
+echo "jseval --quiet document.querySelector('video')?.pause()" >>"$QUTE_FIFO"
+
+echo "jseval navigator.clipboard.writeText(String(Math.floor(document.querySelector('video').currentTime)))" >>"$QUTE_FIFO"
+
+sleep .1
+
+timestamp="$(wl-paste)"
+timestamp="${timestamp:-0}"
+
+mpv --start="$timestamp" "$QUTE_URL" "$(printf "%s " "$queue_urls")" "${MPV_FLAGS[@]}"

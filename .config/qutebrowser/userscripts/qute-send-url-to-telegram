@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+msg=~/.config/qutebrowser/userscripts/helpers/msg
+
+"$msg" info Sending to Telegram...
+
+error=$(~/.scripts/send-to-telegram "$QUTE_URL" 2>&1)
+status=$?
+
+if [ "$status" -eq 0 ]; then
+	"$msg" info "✅ Sent sucessfully"
+else
+	"$msg" error "$error"
+fi

@@ -4,6 +4,8 @@ DIR="$HOME/.local/share/tts"
 INPUT="$DIR/input.txt"
 OUTPUT="$DIR/output.wav"
 
+echo "message-info 'Transforming text to speech...'" >>"$QUTE_FIFO"
+
 mkdir -p "$HOME/.local/share/tts"
 
 rm "$OUTPUT"

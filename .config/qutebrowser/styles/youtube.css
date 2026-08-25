@@ -7,3 +7,8 @@
 .ytwTopLandscapeImageLayoutViewModelHostIsClickableAdComponent {
   display: none;
 }
+
+/* video side recomended videos */
+#related {
+  display: none;
+}

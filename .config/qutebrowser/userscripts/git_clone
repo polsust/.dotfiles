@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+repo_name=$(basename "$QUTE_URL")
+
+"$TERMINAL" -e sh -c "
+mkdir -p ~/Downloads/git
+cd ~/Downloads/git || exit
+git clone $QUTE_URL
+cd $repo_name
+exec $SHELL
+"

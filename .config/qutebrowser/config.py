@@ -1,12 +1,16 @@
 import os
 from urllib.request import urlopen
 
+# import redirections
+
 # load your autoc, use this, if the rest of your config is empty!
 config.load_autoconfig(True)
 
 config.set("colors.webpage.preferred_color_scheme", "dark")
 config.set("content.autoplay", True)
 config.set("content.blocking.method", "both")
+
+config.set("tabs.pinned.frozen", False)
 
 config.bind("<alt-a>", "config-cycle colors.webpage.darkmode.enabled")
 
@@ -37,6 +41,18 @@ config.bind("H", "tab-prev")
 config.bind("L", "tab-next")
 config.bind("D", "tab-give")
 
+
+# devtools
+config.bind("<w><f>", "devtools-focus")
+
+# fix scrolling (sometimes doesn't work on default settings)
+config.bind("<Ctrl-u>", "scroll page-up")
+config.bind("<Ctrl-d>", "scroll page-down")
+config.bind("gg", "scroll top")
+config.bind("G", "scroll bottom")
+
+config.bind("pp", "open -t -- {clipboard}")
+
 config.bind("<alt-r>", "message-info 'Config reloaded' ;; config-source")
 
 config.bind("cm", "clear-messages")
@@ -50,23 +66,33 @@ for i in range(1, 8):
 
 config.bind("<Ctrl-9>", "tab-focus -1")
 
+config.bind("<Ctrl-o>", "tab-focus stack-prev")
+config.bind("<Ctrl-i>", "tab-focus stack-next")
+
 config.bind("<", "tab-move -")
 config.bind(">", "tab-move +")
 
 
 config.bind(
     "gM",
-    "message-info 'Opening in mpv...' ;; spawn --detach mpv --keep-open --force-window --ytdl-format=\"bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]\" {url}",
+    "hint links userscript view_youtube_in_mpv",
 )
 config.bind(
     "gm",
-    "hint links spawn --detach mpv --keep-open --force-window --ytdl-format='ba,bv' {hint-url}",
+    "spawn --userscript view_youtube_in_mpv",
 )
 
 config.bind(
     "gf",
     "spawn google-chrome-stable {url}",
 )
+
+config.bind("<z><l>", "spawn --userscript qute-pass-custom")
+config.bind("<z><u><l>", "spawn --userscript qute-pass-custom --username-only")
+config.bind("<z><p><l>", "spawn --userscript qute-pass-custom --password-only")
+config.bind("<z><o><l>", "spawn --userscript qute-pass-custom --otp-only")
+
+config.bind("sd", "spawn --userscript open_download")
 
 
 config.bind("ge", "edit-url")
@@ -81,17 +107,28 @@ c.editor.command = [
     "normal {line}G{column0}l",
     "-c",
     "set wrap",
+    "-c" "set ft=urlshortcut",
 ]
 
 
-config.bind("gcc", "open -t https://chat.openai.com/?q={url}Don't+reply+yet")
+config.bind("gcc", "open -t https://chat.openai.com/?q={url}")
 config.bind("gcs", "spawn --userscript summarize")
-config.bind("gcl", "spawn git clone {url} ~/Downloads/git")
+config.bind("gcl", "spawn --userscript git_clone")
 
 config.bind(
-    "gs", "message-info 'Transforming text to speech...' ;; spawn --userscript tts"
+    "gyc", "open -t https://www.commentshark.com/youtube-comment-searcher?{url:query}"
 )
+config.bind("gyt", "spawn --userscript show-youtube-transcript")
 
+
+config.bind("gs", "spawn --userscript tts")
+
+config.bind("gp", "spawn --userscript qute-send-url-to-telegram")
+
+config.bind(
+    "gh",
+    "jseval --quiet --file ~/.config/qutebrowser/userscripts/toggle-input-password.js",
+)
 
 c.url.searchengines = {
     "DEFAULT": "https://duckduckgo.com/?q={}",
@@ -104,11 +141,18 @@ c.url.searchengines = {
     "@amazon": "https://www.amazon.es/s?k={}",
     "@wallapop": "https://es.wallapop.com/search?keywords={}",
     "@translate": "https://translate.google.com/?sl=auto&tl=en&op=translate&text={}",
+    "@urban": "https://www.urbandictionary.com/define.php?term={}",
+    "@trends": "https://trends.google.com/explore?q={}&date=today%205-y&geo=Worldwide",
+    "@protondb": "https://www.protondb.com/search?q={}",
 }
 
 c.fonts.default_size = "12pt"
 
-c.content.blocking.whitelist = ["youtube.com"]
+c.content.blocking.whitelist = [
+    "youtube.com",
+    "play.hosting",
+    "vimm.net",
+]
 
 c.content.javascript.clipboard = "access-paste"
 
@@ -126,4 +170,13 @@ c.content.blocking.adblock.lists = [
 c.content.user_stylesheets = [
     "~/.config/qutebrowser/styles/chess-com.css",
     "~/.config/qutebrowser/styles/youtube.css",
+]
+
+c.fileselect.folder.command = [
+    "alacritty",
+    "-t",
+    "float",
+    "-e",
+    "ranger",
+    "--choosedir={}",
 ]

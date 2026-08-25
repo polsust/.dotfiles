@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+msg() {
+	local cmd="$1"
+	shift
+	local msg="$*"
+	if [ -z "$QUTE_FIFO" ]; then
+		echo "$cmd: $msg" >&2
+	else
+		echo "message-$cmd '${msg//\'/\\\'}'" >>"$QUTE_FIFO"
+	fi
+}
+
+msg info "Extracting transcript for $QUTE_URL"
+
+alacritty -e get-youtube-transcript "$QUTE_URL"

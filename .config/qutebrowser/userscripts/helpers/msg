@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+cmd="$1"
+shift
+msg="$*"
+if [ "$QUTE_FIFO" = "" ]; then
+	echo "$cmd: $msg" >&2
+else
+	echo "message-$cmd '${msg//\'/\\\'}'" >>"$QUTE_FIFO"
+fi
